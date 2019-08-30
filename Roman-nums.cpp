@@ -12,32 +12,28 @@ int convert(char *val)  //Takes a cstring, val, and returns an integer of the sa
         conv+=(val[i]-48) * pow(10,j);
     }
 
-    std::cout << conv;
-
     return conv;
 }
 
-char *toRom(char *val)
+char *toRom(char *val)  //Converts to Roman Numerals
 {
     int len = strlen(val)-1;
-
-    
 }
 
-char *fromRom()
+char *fromRom() //Converts from Roman Numerals.
 {
-
+    //w
 }
 
 bool sanitize(int argc, char **argv)    //Checks to see if the inputs are valid.
 {
-    int len = strlen(argv[2]);
-
     if(argc!=3) //Checks there are valid number of arguments
     {
         std::cout << "Provide more arguments!";
         return false;
     }
+
+    int len = strlen(argv[2]);
 
     if(argv[1][0]=='F' || argv[1][0]=='f') //Checks the mode is valid
     {
@@ -50,17 +46,19 @@ bool sanitize(int argc, char **argv)    //Checks to see if the inputs are valid.
             }
         }
     }
+
     else if(argv[1][0]=='T' || argv[1][0]=='t') //Checks the mode is valid.
     {
         for(int i=0 ; i<len ; i++)
         {
-            if(argv[2][i]<'0' && argv[2][i]>'9')  //Checks each character will appear in a decimal number.
+            if(argv[2][i]<'0' || argv[2][i]>'9')  //Checks each character is a decimal number.
             {
                 std::cout << "Provide a valid number!";
                 return false;
             }
         }
     }
+
     else    //The modes are invalid
     {
         std::cout << "Provide correct modes, [F] or [T]";
@@ -79,19 +77,23 @@ int main (int argc, char **argv)
         return 1;
     }
 
-    if(argv[1][0]='F' || argv[1][0]=='f')
-    {
+    conv = convert(argv[2]);
 
+    if(argv[1][0]=='F' || argv[1][0]=='f')
+    {
+        return 0;
     }
 
     if(argv[1][0]='T' || argv[1][0]=='t')
     {
-        if(convert(argv[2])>3888);
+        if(conv > 3888)
         {
             std::cout << "Please input a smaller number!";
             return 1;
         }
 
+
         toRom(argv[2]);
+        return 0;
     }
 }
