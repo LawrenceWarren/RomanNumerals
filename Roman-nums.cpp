@@ -17,9 +17,11 @@ int convert(char *val)  //Takes a cstring, val, and returns an integer of the sa
     return conv;
 }
 
-char *toRom()
+char *toRom(char *val)
 {
+    int len = strlen(val)-1;
 
+    
 }
 
 char *fromRom()
@@ -84,7 +86,12 @@ int main (int argc, char **argv)
 
     if(argv[1][0]='T' || argv[1][0]=='t')
     {
-        conv = convert(argv[2]);
-        fromRom(conv);
+        if(convert(argv[2])>3888);
+        {
+            std::cout << "Please input a smaller number!";
+            return 1;
+        }
+
+        toRom(argv[2]);
     }
 }
